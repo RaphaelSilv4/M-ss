@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const DivMainContainer = styled.div`
-  height: 100vh;
   display: block;
   align-items: center;
   flex-wrap: nowrap;

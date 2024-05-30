@@ -19,6 +19,7 @@ const Container = styled.div`
     min-height: 812px;
     margin-top: 0px;
     position: relative;
+    border-radius: 0 0 1rem 1rem;
 
     background: rgba(15, 15, 15, .9);
     backdrop-filter: saturate(180%) blur(10px);

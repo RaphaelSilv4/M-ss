@@ -56,7 +56,8 @@ const SearchResults = () => {
                 <MovieList>
                     {searchResults.map(result => (
                         <Movie key={result.id}>
-                            <Link to={`/details/${result.id}`}>
+                            <Link to={`/details/${result.media_type
+}/${result.id}`}>
                                 <img src={`${image_path}${result.poster_path}`} alt={result.title || result.name} />
                             </Link>
                             <span>{result.title || result.name}</span>

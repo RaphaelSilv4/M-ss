@@ -8,7 +8,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: top fixed;
+    position: fixed;
+    z-index: 1000;
 }
 
 .logo {
@@ -54,7 +55,7 @@
 .subMenu {
     display: none;
     position: absolute;
-    top: 70px;
+    top: 60px;
     max-width: 200px;
     padding-left: 0;
     border-radius: .4rem;

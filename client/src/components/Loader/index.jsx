@@ -6,7 +6,7 @@ function Loader() {
 
         <Container>
             <ContainerLoading >
-                <h1>Loading...</h1>
+                <h1>Carregando...</h1>
             </ContainerLoading>
         </Container>
         
