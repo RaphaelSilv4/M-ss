@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #EFE6E8;
+    background: linear-gradient(to bottom, #413434,rgb(0, 0, 0), #000000);
 }
 
 .containerLoginCadastro {
@@ -12,9 +12,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d3cbcb;
+    background: rgba(15, 15, 15, .9);
+    backdrop-filter: saturate(180%) blur(10px);
     border-radius: 10px;
-    box-shadow: 0 5px 10px 0px rgb(110, 104, 104);
+    box-shadow: 0 0px 25px 0px rgb(0, 0, 0);
 }
 
 .containerCadastro {
@@ -35,7 +36,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-image: url("/src/assets/Rectangle\ 2.png ");
+    background: linear-gradient(to bottom, #b40303, #b40303, #740000);
     border-radius: 10px 0px 0px 10px;
 }
 
@@ -45,7 +46,7 @@
     height: 50%;
     display: flex;
     justify-content: center;
-    color: #bd1313;
+    color: #D3D3D3;
     font-weight: 700;
     margin: 0;
 }
@@ -54,7 +55,7 @@
     height: 50%;
     display: flex;
     justify-content: center;
-    color: #a88989;
+    color: #ada6a6;
     font-size: 12pt;
     margin: 0;
 }
@@ -65,7 +66,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin: 10px;
+    margin: 0px;
 }
 
 
@@ -74,27 +75,40 @@
     border: none;
     border-radius: 10px;
     padding: 15px;
-    background-color: rgb(211, 162, 162);
-    color: #8d7070;
-    font-size: 12pt;
-    box-shadow: 0px 5px 20px #ce1a1a;
+    background-color: rgb(223, 210, 210);
+    color: #1b1a1a;
+    font-size: 14pt;
     outline: none;
     box-sizing: border-box;
-}
-
-.textfild>label {
-    color: #bb7171;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .textfild>input::placeholder {
-    color: #bb7171;
+    color: #524747;
 }
 
 .textSigla {
     font-size: 34pt;
     font-style: italic;
-    color: #534c4c;
+    font-weight: bold;
+    color: #b3b3b3;
+    margin-bottom: 1.25rem;
+}
+
+.textSigla {
+    width: 12rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c70000;
+    border: 1px solid rgba(104, 4, 4, 0.637);
+    border-radius: 18px;
+    box-shadow: 0 0 30px 3px #8d1c1c;
+}
+
+.textSigla:hover{
+    background-color: #8a0e0e;
 }
 
 .textMenssagem {
@@ -102,13 +116,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
-    font-size: 24pt;
+    color: #FFF;
+    font-size: 20pt;
+    font-weight: 600;
 }
 
 .textMenssagem2 {
-    color: #806f6f;
-    font-size: 16pt;
+    color: #dad3d3c4;
+    font-size: 12pt;
 }
 
 .containerCadastroFormBtn {
@@ -116,9 +131,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
-.linkButton {
+.buttonCadastro {
     width: 50%;
     height: 40%;
     display: flex;
@@ -129,12 +145,12 @@
     border: none;
     border-radius: 20px;
     outline: none;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 2px;
-    color: #3a2123;
-    background: #ca1a29;
+    color: #252020;
+    background: #e4dcdd;
     cursor: pointer;
-    box-shadow: 0px 10px 40px -12px #111111;
+    margin-top: 10px;
 }
 
 .containerLoginFormBtn {
@@ -154,12 +170,145 @@
     padding: 16px 0px;
     margin: 25px;
     border: none;
-    border-radius: 20px;
+    border-radius: .6rem;
     outline: none;
+    text-decoration: none;
     font-weight: 800;
-    letter-spacing: 2px;
-    color: #5e4c4d;
-    background: #e6dfdf;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #000000;
+    background: transparent;
     cursor: pointer;
-    box-shadow: 0px 10px 40px -12px #d1c9c9;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 10px;
 }
+
+.error {
+    color: rgba(252, 4, 0, 0.856);
+}
+
+.errorCadastro {
+    width: 70%;
+    color: rgba(252, 4, 0, 0.856);
+    font-size: 18px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+.linkloginBtn:hover {
+    background-color: #e4dcdd;
+  }  
+
+.buttonCadastro:hover {
+    background-color: #b40303;
+}
+
+@media (max-width: 1024px) {
+    .containerLoginCadastro {
+        width: 70vw;
+        height: auto;
+        
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .containerCadastro, .containerLogin {
+        
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .containerLoginCadastro{
+        width: 30rem;
+        height: 25rem; 
+    }
+
+    .containerCadastro {
+        width: 30rem;
+        height: 25rem;
+    }
+
+    .containerCadastroFormBtn{
+        width: 10rem;
+    }
+
+    .criarConta{
+        font-size: 14pt;
+    }
+
+    .subMenssagem{
+        font-size: 8pt;
+    }
+
+    .textSigla {
+        background: transparent;
+        font-size: 20pt;
+        border: none;
+        box-shadow: none;
+    }
+
+    .textfild {
+        height: 60px;
+        font-size: 9pt;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .textfild>input {
+        width: 12rem;
+        height: 2.2rem;
+        border-radius: 0.6rem;
+        margin-top: 10px;
+    }
+
+    .textfild>input::placeholder{
+        font-size: 10pt;
+    }
+
+    .buttonCadastro{
+        width: 120px;
+        height: 35px;
+        text-align: center;
+        justify-content: center;
+        font-size: 8pt;
+        border-radius: 0.6rem;
+        box-shadow: 0px 0px 10px 1px #302e2e;
+        margin-top: 3px;
+        margin-left: 90px;
+    }
+
+    .containerLogin{
+        height: 25rem;
+    }
+
+    .textMenssagem{
+        font-size: 10pt;
+    }
+
+    .textMenssagem2{
+        font-size: 8pt;
+    }
+
+    .linkloginBtn {
+        width: 80px;
+        font-size: 8pt;
+        border-radius: 0.7rem;
+    }
+
+    .error{
+        margin-left: -12px;
+        margin-bottom: 10px;
+    }
+
+    .errorCadastro {
+        font-size: 9pt;
+        margin-top: 0rem;
+    }
+
+}
+

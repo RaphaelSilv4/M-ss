@@ -1,0 +1,253 @@
+/* Estilos gerais */
+.header {
+    width: 100%;
+    height: 4rem;
+    background-color: #b60f0f;
+    color: #ffffff;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: top fixed;
+}
+
+.logo {
+    color: #f7e6e6;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5px;
+    background-color: #c70000;
+    border: 1px solid rgba(104, 4, 4, 0.637);
+    border-radius: 6px;
+    box-shadow: 0 0 30px 3px #7a0606;
+
+    h1 {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+}
+
+.logo:hover{
+    background-color: #8a0e0e;
+}
+
+.header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.MainNavGenres {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.MainNavGenres:hover .subMenu {
+    display: block;
+}
+
+.subMenu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    max-width: 200px;
+    padding-left: 0;
+    border-radius: .4rem;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.98);
+    opacity: .97;
+    z-index: 1; 
+}
+
+.subMenu .navGenres {
+    width: 100%;
+    text-decoration: none;
+    color: #ababab;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 25px 20px;
+    line-height: 20px;
+    float: left;
+}
+
+.subMenu .navGenres::after {
+    font-family: "font awesome 5 pro";
+    font-style: normal;
+    font-weight: 900;
+    margin-left: 10px;
+    margin-top: -3px;
+    font-size: 14px;
+    float: right;
+}
+
+.subMenu .navGenres {
+    font-size: 17px;
+    font-style: normal;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.subMenu .navGenres:hover {
+    color: #f1f0f0;
+}
+
+.iconGenres {
+    font-size: 17px;
+    font-style: normal;
+    padding: 0 5px;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.MainNavGenres .subMenu .navGenres {
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    float: left;
+}
+
+.search_bar_container {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.search_bar {
+    width: 25rem;
+    border: none;
+    padding: 15px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 12pt;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.searchButton {
+    background: transparent;
+    border: none;
+}
+
+.search_icon {
+    color: #c7c3c3;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.navItem {
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.menu_icon {
+    cursor: pointer;
+}
+
+.menu_items {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #810909;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px #6b1010;
+}
+
+.menu_item {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+/* Media Queries para telas menores */
+
+@media (max-width: 1024px) {
+    .search_bar {
+        width: 20rem;
+    }
+
+    .MainNavGenres {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: center;
+        height: auto;
+    }
+
+    .search_bar {
+        width: 8rem;
+        height: 2.3rem;
+        font-size: 0.9rem;
+    }
+
+    .MainNavGenres {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        font-size: 0.7rem;
+    }
+
+    .navItem{
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search_bar {
+        width: 0.6rem;
+        height: 1rem;
+    }
+
+    .navItem {
+        font-size: 0.6rem;
+        margin: 0.3rem;
+    }
+
+    .MainNavGenres {
+        font-size: 0.6rem;
+    }
+
+    .menu_items {
+        width: 100%;
+        position: static; 
+        box-shadow: none;
+        background-color: transparent;
+        flex-direction: column; 
+    }
+
+    .menu_item {
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        margin-top: .1rem;
+        font-size: .5rem;
+    }
+}

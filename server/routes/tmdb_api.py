@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 import requests
-from config.database import db
 
-api_key = 'TMDB KEY'
+
+api_key = 'api_key'
 tmdb_bp = Blueprint("tmdb_bp", __name__)
 
 
@@ -76,7 +76,6 @@ def get_popular_content():
     else:
         return jsonify({"error": "Não foi possível obter o filme ou série mais assistido(a)"}), response.status_code
 
-
 def get_genre_content():
     tipo = request.args.get('tipo')
     if not tipo:
@@ -118,7 +117,7 @@ def fetch_content_bygenre():
     else:
         return jsonify({"error": "Não foi possível obter o conteúdo do gênero"}), response.status_code
 
-
+@tmdb_bp.route("/tmdb/search", methods=["GET"])
 def search_tmdb():
     query = request.args.get('query')
     if not query:
@@ -130,3 +129,31 @@ def search_tmdb():
         return jsonify({"search_results": data})
     else:
         return jsonify({"error": "Não foi possível realizar a pesquisa"}), response.status_code
+    
+@tmdb_bp.route("/tmdb/movies", methods=["GET"])
+def fetch_movies():
+    genre = request.args.get('genre', '')
+    sort = request.args.get('sort', 'popular')
+    query = request.args.get('query', '')
+    # Construa a URL da API com base nos parâmetros
+    url = f"https://api.themoviedb.org/3/movie/{sort}?api_key={api_key}&language=pt-BR&page=1&with_genres={genre}&query={query}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return jsonify({"results": data['results']})
+    else:
+        return jsonify({"error": "Não foi possível obter os filmes"}), response.status_code
+
+@tmdb_bp.route("/tmdb/series", methods=["GET"])
+def fetch_series():
+    genre = request.args.get('genre', '')
+    sort = request.args.get('sort', 'popular')
+    query = request.args.get('query', '')
+    # Construa a URL da API com base nos parâmetros
+    url = f"https://api.themoviedb.org/3/tv/{sort}?api_key={api_key}&language=pt-BR&page=1&with_genres={genre}&query={query}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return jsonify({"results": data['results']})
+    else:
+        return jsonify({"error": "Não foi possível obter as séries"}), response.status_code
