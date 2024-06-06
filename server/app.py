@@ -1,3 +1,4 @@
+from flask_cors import CORS
 from flask import Flask
 from flask_cors import CORS
 from config.database import db
@@ -8,8 +9,7 @@ from routes.tmdb_api import tmdb_bp
 
 app = Flask(__name__)
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:passward@127.0.0.1:5432/m&s'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Rr159789852@127.0.0.1:5432/M&S'
 db.init_app(app)
 app.register_blueprint(cliente_bp)
 app.register_blueprint(cargo_bp)
