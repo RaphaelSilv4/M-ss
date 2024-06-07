@@ -59,7 +59,7 @@ function Register() {
       console.log(response);
 
       // Redirecionar para a página home após o cadastro bem-sucedido
-      navigate('/home');
+      navigate('/login');
     } catch (error) {
       console.error(error);
       setSubmitError('Ocorreu um erro ao processar o cadastro. Por favor, tente novamente mais tarde.');

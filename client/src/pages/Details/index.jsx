@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 import { CgArrowLeftO } from "react-icons/cg";
 import { BiLike,BiDislike } from "react-icons/bi";
@@ -26,13 +28,16 @@ function Details() {
         const { id, title, name, overview, backdrop_path, release_date,first_air_date
         } = data;
 
+        const formattedDate = release_date || first_air_date
+          ? format(new Date(release_date || first_air_date), 'dd/MM/yyyy', { locale: ptBR })
+          : null;
+
         const mediaItem = {
           id,
           title: title || name,
           overview: overview,
           image: `${image_path}${backdrop_path}`,
-          release_date: release_date||first_air_date
-          ,
+          release_date: formattedDate,
         };
         setMedia(mediaItem);
       });

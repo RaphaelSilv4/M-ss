@@ -20,7 +20,7 @@ const Credits = styled.p`
 const Footer = () => {
   return (
     <FooterContainer>
-      <Credits>Créditos: Danilo Medeiros ,Jose Luan ,Rafhael Lacerda</Credits>
+      <Credits>Créditos: Danilo Medeiros ,Jose Luan ,Raphael Lacerda</Credits>
     </FooterContainer>
   );
 };
