@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, Flask
 from models import user_model
 from werkzeug.security import check_password_hash
+from flask_jwt_extended import JWTManager, create_access_token
+
 login_bp = Blueprint('login_bp', __name__, url_prefix='/login')
 
 
@@ -17,4 +19,6 @@ def login():
     if not usuario or not check_password_hash(usuario.senha, senha):
         return jsonify({'error': 'Email ou senha incorretos'}), 401
 
-    return jsonify({'message': 'Login bem-sucedido'}), 200
+    access_token = create_access_token(identity=usuario.id)
+    return jsonify({'message': 'Login bem-sucedido', 'access_token': access_token}), 200
+
