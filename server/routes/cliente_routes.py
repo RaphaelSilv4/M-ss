@@ -2,13 +2,15 @@ from flask import Blueprint, request, jsonify
 from models.user_model import Cliente
 from flask_jwt_extended import create_access_token, jwt_required
 from datetime import timedelta
-from service.client_service import validar_dados_cliente, criar_cliente, atualizar_cliente
+from service.client_service import criar_cliente, validar_dados_cliente, atualizar_cliente
 from config.database import db
+
 
 cliente_bp = Blueprint('cliente_bp', __name__, url_prefix='/routes')
 
+
 @cliente_bp.route("/cliente", methods=("GET", "POST"))
-def registrar_cliente(cliente=None):
+def registrar_cliente():
     # Listagem dos clientes
     if request.method == "GET":
         clientes = Cliente.query.all()
@@ -21,11 +23,9 @@ def registrar_cliente(cliente=None):
             return jsonify({'error': error_message}), 400
         
         cliente = criar_cliente(data)
-        access_token = create_access_token(identity=cliente.id, expires_delta=timedelta(hours=1))
 
         return jsonify({
             "message": "Cliente cadastrado com sucesso",
-            "access_token": access_token
         }), 200
 
 @cliente_bp.route("/cliente/<int:cliente_id>", methods=["DELETE"])
