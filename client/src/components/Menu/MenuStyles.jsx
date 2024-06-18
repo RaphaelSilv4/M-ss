@@ -31,7 +31,8 @@ const ProfileHeader = styled.div`
 
 const ProfileName = styled.span`
   font-weight: bold;
-  margin-right: 5rem;
+  margin-right: 10rem;
+  color: aliceblue;
 
   @media (max-width: 760px) {
     font-size: .6rem;

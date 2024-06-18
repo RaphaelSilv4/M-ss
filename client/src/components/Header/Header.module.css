@@ -40,86 +40,6 @@
     margin-right: 10px;
 }
 
-.MainNavGenres {
-    text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 500;
-    margin: 10px;
-}
-
-.MainNavGenres:hover .subMenu {
-    display: block;
-}
-
-.subMenu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    max-width: 200px;
-    padding-left: 0;
-    border-radius: .4rem;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .2);
-    background: rgba(0, 0, 0, 0.98);
-    opacity: .97;
-    z-index: 1; 
-}
-
-.subMenu .navGenres {
-    width: 100%;
-    text-decoration: none;
-    color: #ababab;
-    font-size: 14px;
-    font-weight: 400;
-    padding: 25px 20px;
-    line-height: 20px;
-    float: left;
-}
-
-.subMenu .navGenres::after {
-    font-family: "font awesome 5 pro";
-    font-style: normal;
-    font-weight: 900;
-    margin-left: 10px;
-    margin-top: -3px;
-    font-size: 14px;
-    float: right;
-}
-
-.subMenu .navGenres {
-    font-size: 17px;
-    font-style: normal;
-    padding: 0 5px;
-    border-radius: 3px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: inline-block;
-}
-
-.subMenu .navGenres:hover {
-    color: #f1f0f0;
-}
-
-.iconGenres {
-    font-size: 17px;
-    font-style: normal;
-    padding: 0 5px;
-    color: #fff;
-    border-radius: 3px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: inline-block;
-}
-
-.MainNavGenres .subMenu .navGenres {
-    padding: 10px 20px;
-    width: 100%;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    float: left;
-}
-
 .search_bar_container {
     background-color: transparent;
     display: flex;
@@ -152,12 +72,21 @@
 }
 
 .navItem {
+    color: #f7e6e6;
     text-decoration: none;
-    position: relative;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 500;
-    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 15pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: transparent;
+    border-radius: 6px;
+    margin-right: 20px;
+}
+
+.navItem:hover{
+    background-color: #8a0000;
+    border: 1px solid rgba(104, 4, 4, 0.637);
 }
 
 .menu_icon {
@@ -180,6 +109,14 @@
     color: #fff;
     text-decoration: none;
     margin-bottom: 5px;
+}
+
+.user {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: space-between;
+    color: #dbd8d8;
 }
 
 /* Media Queries para telas menores */

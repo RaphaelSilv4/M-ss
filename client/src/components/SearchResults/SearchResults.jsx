@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import axios from '../../services';
+import axios from '../../services/index.js';
 
-import { Container, DivMainContainer, ButtonLR, Span, MovieList, Movie } from './styles.jsx';
+import { Container, DivMainContainer, ButtonLR, Span, MovieList, Movie } from './SearchResultsStyles.jsx';
 import { CgArrowLeftO } from "react-icons/cg";
 
 

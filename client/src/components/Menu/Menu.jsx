@@ -1,19 +1,22 @@
+// ProfileMenuComponent.js
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import  AuthContext  from '../../contexts/AuthContext';
-
-import { ButtonAccount, ProfileMenu, ProfileHeader, ProfileName, MenuItems, MenuItem, CloseButton, IconWrapper } from './styles';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import { 
+  ButtonAccount, ProfileMenu, ProfileHeader, ProfileName, 
+  MenuItems, MenuItem, CloseButton, IconWrapper 
+} from './MenuStyles';
 import { MdOutlineAccountCircle } from 'react-icons/md';
-import { CgCloseO, CgBookmark } from "react-icons/cg";
-import { IoSettingsOutline } from "react-icons/io5";
-import { AiOutlineLogin } from "react-icons/ai";
-import { FaRegUser } from "react-icons/fa";
-
+import { CgCloseO, CgBookmark } from 'react-icons/cg';
+import { IoSettingsOutline } from 'react-icons/io5';
+import { AiOutlineLogin } from 'react-icons/ai';
+import { FaRegUser } from 'react-icons/fa';
 
 const ProfileMenuComponent = () => {
   const [isopen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const context = useContext(AuthContext);
+  const { isAuthenticated, user, logout } = useContext(AuthContext);
+  
 
   const toggleMenu = () => {
     setIsOpen(!isopen);
@@ -31,14 +34,15 @@ const ProfileMenuComponent = () => {
   const handleFavoritesClick = () => {
     closeMenu();
     navigate('/favorites');
-  }
+  };
 
   const handleSettingsClick = () => {
     closeMenu();
     navigate('/userSetting');
-  }
+  };
 
   const handleLogoutClick = () => {
+    logout();
     closeMenu();
     navigate('/login');
   };
@@ -49,7 +53,7 @@ const ProfileMenuComponent = () => {
       <ProfileMenu isopen={isopen ? 'true' : undefined}>
         <ProfileHeader>
           <MdOutlineAccountCircle size={30} aria-label="Profile icon" />
-          <ProfileName>{context.isAuthenticated ? 'User auth':'No access'}</ProfileName>
+          <ProfileName>{isAuthenticated ? user : 'Usuário'}</ProfileName>
           <CloseButton onClick={closeMenu} aria-label='Close menu'><CgCloseO size={20} /></CloseButton>
         </ProfileHeader>
         <MenuItems>

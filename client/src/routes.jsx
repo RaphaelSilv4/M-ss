@@ -1,14 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NotFound from './components/NotFound';
-import Layout from "./components/Layout";
+import NotFound from './components/NotFound/NotFound';
+import Layout from "./components/Layout/Layout";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
-import HomePage from "./pages/Home";
+import HomePage from "./pages/Home/Home";
 import Details from "./pages/Details";
-import SearchResults from "./components/SearchResults";
-import MediaList from "./components/MediaList";
-import Profile from "./components/Profile";
-import UserSettings from "./components/UserSettings";
+import SearchResults from "./components/SearchResults/SearchResults";
+import MediaList from "./components/MediaList/MediaList";
+import Profile from "./components/Profile/Profile";
+import UserSettings from "./components/UserSettings/UserSettings";
+import Favorite from "./components/Favorite/Favorite";
 
 function AppRouters() {
     return (
@@ -23,6 +24,7 @@ function AppRouters() {
                     <Route path="media/:tipo" element={<MediaList />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="userSetting" element={<UserSettings />} />
+                    <Route path="favorites" element={<Favorite />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>

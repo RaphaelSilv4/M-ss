@@ -4,6 +4,15 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 comment_bp = Blueprint('comment_bp', __name__, url_prefix='/comments')
 
+@comment_bp.route("/", methods=["GET"])
+@jwt_required()
+def get_user_comments():
+    user_id = get_jwt_identity()
+    comments = CommentService.get_comments_by_user(user_id)
+    if comments:
+        return jsonify(comments), 200
+    return jsonify({"error": "Nenhum comentário encontrado para este usuário"}), 404
+
 @comment_bp.route("/", methods=["POST"])
 @jwt_required()
 def create_comment():
@@ -62,3 +71,11 @@ def dislike_comment(comment_id):
     if comment:
         return jsonify(comment), 200
     return jsonify({"error": "Comentário não encontrado"}), 404
+
+@comment_bp.route("/media/<int:movie_id>", methods=["GET"])
+
+def get_comments_by_movie(movie_id):
+    comments = CommentService.get_comments_by_movie(movie_id)
+    if comments:
+        return jsonify(comments), 200
+    return jsonify({"error": "Nenhum comentário encontrado"}), 404

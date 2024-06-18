@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  height: 100vh;
+  height: auto;
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,6 +17,7 @@ export const ProfileContainer = styled.div`
   padding: 20px;
   margin-top: 10px;
   max-width: 1000px;
+  max-height: auto;
   background: rgba(15, 15, 15, 0.9);
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 10px;
@@ -24,6 +25,15 @@ export const ProfileContainer = styled.div`
 
   h1 {
     font-size: 1.2rem;
+  }
+
+  h2 {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c2182b;
+    border-radius: 6px;
+    box-shadow: 0px 0px 4px 0px #222d34;
+    margin-top: 10px;
   }
 
   h1, h2 {
@@ -55,6 +65,8 @@ export const ProfileImage = styled.div`
   color: #d4d4d4b0;
 
   img {
+    display: block;
+    margin: 0 auto;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -62,6 +74,7 @@ export const ProfileImage = styled.div`
     object-fit: cover;
     margin-bottom: 10px;
   }
+  
 `;
 
 export const Label = styled.label`
@@ -90,31 +103,59 @@ export const FileName = styled.span`
 export const Timeline = styled.div`
   display: flex;
   flex-direction: column;
+
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    h3 {
+      color: #d3d3d2;
+      margin: 10px;
+      margin-top: 18px;
+    }
+  }
+
 `;
 
 export const FavoritesList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: wrap;
   list-style: none;
   padding: 0;
 
   li {
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
     text-align: center;
 
     img {
-      width: 100px;
-      height: 150px;
-      border-radius: 5px;
+      width: 150px;
+      height: auto;
+      display:flex;
+      padding: 10px;
+      border-radius: 1rem;
+      margin-bottom: .4rem;
       object-fit: cover;
     }
 
     span {
       display: block;
-      margin-top: 5px;
       color: #d3d3d2;
     }
+
+    a {
+        transition: all 0.3s;
+    }
+
+    a:hover {
+        transform: scale(1.1);
+    }
+
   }
+  
+
 `;
 
 export const CommentsList = styled.ul`

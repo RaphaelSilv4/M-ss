@@ -1,6 +1,6 @@
 import { expect } from 'vitest';
 import { renderWithRouter, screen, fireEvent } from '../../test-utils';
-import Menu from './index';
+import Menu from './Menu';
 import '@testing-library/jest-dom';
 
 describe('Menu', () => {

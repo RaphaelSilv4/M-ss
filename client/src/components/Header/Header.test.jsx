@@ -1,7 +1,7 @@
 // src/components/Header/Header.test.jsx
 import React from 'react';
 import { renderWithRouter, screen } from '../../test-utils';
-import Header from './index';
+import Header from './Header';
 import '@testing-library/jest-dom';
 import { expect } from 'vitest';
 

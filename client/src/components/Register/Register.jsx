@@ -47,10 +47,10 @@ function Register() {
     }
 
     try {
-      const response = await api.post('/routes/cliente', {
-        nome: name.trim(),
+      const response = await api.post('/routes/client', {
+        name: name.trim(),
         email: email.trim(),
-        senha: password.trim()
+        password: password.trim()
       }, {
         headers: {
           'Content-Type': 'application/json'

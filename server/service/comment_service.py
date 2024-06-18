@@ -52,3 +52,14 @@ class CommentService:
             db.session.commit()
             return comment.serialize()
         return None
+    
+    @staticmethod
+    def get_comments_by_movie(movie_id):
+        comments = Comment.query.filter_by(movie_id=movie_id).all()
+        return [comment.serialize() for comment in comments]
+    
+    @staticmethod
+    def get_comments_by_user(user_id):
+        comments = Comment.query.filter_by(user_id=user_id).all()
+        return [comment.serialize() for comment in comments]
+    

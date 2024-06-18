@@ -3,10 +3,10 @@ from sqlalchemy.orm import mapped_column, relationship
 from config.database import db
 
 class Comment(db.Model):
-    __tablename__ = "comments"
+    __tablename__ = "user_comments"
 
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
-    user_id = mapped_column(Integer, ForeignKey('usuario_cliente.id'), nullable=False)
+    user_id = mapped_column(Integer, ForeignKey('user_client.id'), nullable=False)
     movie_id = mapped_column(Integer, nullable=False)
     content = mapped_column(String(500), nullable=False)
     created_at = mapped_column(DateTime, default=func.now())
@@ -14,7 +14,7 @@ class Comment(db.Model):
     likes = mapped_column(Integer, default=0)
     dislikes = mapped_column(Integer, default=0)
 
-    user = relationship("Cliente", back_populates="comments")
+    user = relationship("Client", back_populates="comments")
 
     def serialize(self):
         return {

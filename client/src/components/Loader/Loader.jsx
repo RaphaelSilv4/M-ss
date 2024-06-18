@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, ContainerLoading } from './styles';
+import { Container, ContainerLoading } from './LoaderStyles';
 
 function Loader() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderWithRouter, screen } from '../../test-utils';
-import Profile from './index';
+import Profile from './Profile';
 import '@testing-library/jest-dom';
 
 describe('Profile Component', () => {

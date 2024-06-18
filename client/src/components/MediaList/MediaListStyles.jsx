@@ -24,7 +24,7 @@ const Container = styled.div`
     backdrop-filter: saturate(180%) blur(10px);
     border-bottom: solid 1px rgba(255, 255, 255, .07);
     border-top: solid 1px rgba(255, 255, 255, .07);
-    
+    border-radius: 0 0 1rem 1rem;
   
     @media (max-width: 768px) {
         padding: 1rem;
@@ -40,9 +40,55 @@ const Container = styled.div`
         border-radius: 6px;
         box-shadow: 0px 0px 4px 0px #222d34;
     }
+    button {
+    background: transparent;
+    color: #fdf2f2;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  select {
+    transition: transform 0.3s ease-in-out;
+    color: #fdf2f2;
+    cursor: pointer;
+    border: none;
+    opacity: .97;
+    margin-bottom: 15px;
+    border-radius: 3px;
+
+    font-family: "font awesome 5 pro";
+    font-style: normal;
+    font-weight: 900;
+    margin-left: 10px;
+    font-size: 14px;
+     
+
+    &::after{
+    background: rgba(12, 0, 0, 0.9);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: solid 1px rgba(255, 255, 255, .07);
+    border-top: solid 1px rgba(255, 255, 255, .07);
+    opacity: .97;
+    border-radius: 3px;
+}
+
+    &:hover {
+    background: rgba(12, 0, 0, 0.98);
+  }
+
+    &:focus {
+    outline: none;
+    border: none;
+  }
+    option {
+    background-color: #000000;
+    color: #fdf2f2;
+  }
+  }
+  
 `;
 
-const MovieList = styled.ul`
+const List = styled.ul`
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -50,7 +96,7 @@ const MovieList = styled.ul`
     row-gap: 4rem;
 `;
 
-const Movie = styled.li`
+const Midia = styled.li`
     display: flex;
     margin-top: 10px;
     flex-direction: column;
@@ -80,7 +126,7 @@ const Movie = styled.li`
 `;
 
 
-export { Movie }
+export { Midia }
 export { Container }
-export { MovieList }
+export { List }
 export { DivMainContainer }

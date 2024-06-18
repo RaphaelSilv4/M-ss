@@ -7,18 +7,22 @@ from service.client_service import authenticate_user
 login_bp = Blueprint('login_bp', __name__, url_prefix='/login')
 
 
-@login_bp.route("", methods=["POST"])
+@login_bp.route("/", methods=["POST"])
 def login():
     email = request.json.get('email')
-    senha = request.json.get('senha')
-    print(senha)
+    password = request.json.get('password')
 
-    if not email or not senha:
+    if not email or not password:
         return jsonify({'error': 'Email ou senha faltando'}), 400
 
     try:
-        usuario = authenticate_user(email=email, senha=senha)
-        access_token = create_access_token(identity=usuario.id)
-        return jsonify({'message': 'Login bem-sucedido', 'access_token': access_token}), 200
-    except:
+        user = authenticate_user(email=email, password=password)
+        access_token = create_access_token(identity=user.id)
+        return jsonify({
+            'message': 'Login bem-sucedido',
+            'access_token': access_token,
+            'user': user.serialize()  # Retorna os dados do usuário
+        }), 200
+    except Exception as e:
+        print(f"Erro durante a autenticação: {e}")  # Log do erro
         return jsonify({'error': 'Email ou senha incorretos'}), 401

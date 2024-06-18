@@ -7,7 +7,8 @@ const DivMainContainer = styled.div`
   justify-content: center;
   background: #000000 !important;
   margin: 0;  
-  padding: 0;  
+  padding: 0;
+  position: relative;  
 `;
 
 const Container = styled.div`
@@ -15,12 +16,13 @@ const Container = styled.div`
   background: rgba(15, 15, 15, 0.9);
   backdrop-filter: saturate(180%) blur(10px);
   margin: 0; 
-
+  position: relative; 
+  z-index: 2;
 `;
 
 const CommentBox = styled.div`
   margin-top: 20px;
-  color: #f5f3f3;
+  color: #fff;
   
 
   h2 {
@@ -65,47 +67,10 @@ const CommentButton = styled.button`
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 10px;
 
   &:hover {
     background: #6e030c;
-  }
-
-  @media (max-width: 768px) {
-    padding: 10px;
-    font-size: 12px;
-  }
-
-`;
-
-const ButtonLike = styled.button`
-  background: transparent;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    color: #13036e;
-  }
-
-  @media (max-width: 768px) {
-    padding: 10px;
-    font-size: 12px;
-  }
-
-`;
-
-const ButtonDeslike = styled.button`
-  background: transparent;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    color: #6e030c;
   }
 
   @media (max-width: 768px) {
@@ -138,7 +103,7 @@ const DetailsContainer = styled.div`
     bottom: 0;
     -webkit-box-shadow: 0 0 20px 2px rgba(0,0,0,.4);
     box-shadow: 0 0 20px 2px rgba(0,0,0,.4);
-    background: rgba(0, 0, 0, 0.5); /* Gradiente escuro */
+    background: rgba(0, 0, 0, 0.5); 
     z-index: 1;
   }
 
@@ -167,7 +132,7 @@ const DetailsContainer = styled.div`
     line-height: 130%;
     margin-bottom: 1rem;
     font-size: 110%;
-    background: rgba(0, 0, 0, 0.7); /* Fundo escuro */
+    background: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 5px;
   }
@@ -189,4 +154,44 @@ const DetailsContainer = styled.div`
 
 `;
 
-export { Container, CommentBox, CommentInput, CommentButton, DivMainContainer, DetailsContainer,ButtonDeslike,ButtonLike };
+const ButtonLike = styled.button`
+  color: ${props => (props.liked ? 'blue' : '#aca9a9')};
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-top:  10px;
+  margin-right: 10px;
+`;
+
+const ButtonDislike = styled.button`
+  color: ${props => (props.disliked ? 'red' : '#aca9a9')};
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-top:  10px;
+  margin-right: 10px;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); 
+  z-index: 1;
+`;
+
+const ButtonFavorite = styled.button`
+  
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+
+  &:hover {
+    background: #bd0a1c;
+    border-radius: 5px;
+  }
+
+`;
+
+export { Container, CommentBox, CommentInput, CommentButton, DivMainContainer, DetailsContainer,ButtonLike,ButtonDislike,Overlay,ButtonFavorite };

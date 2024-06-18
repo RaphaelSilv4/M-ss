@@ -6,12 +6,12 @@ class Favorite(db.Model):
     __tablename__ = "favorites"
     
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
-    user_id = mapped_column(Integer, ForeignKey('usuario_cliente.id'), nullable=False)
+    user_id = mapped_column(Integer, ForeignKey('user_client.id'), nullable=False)
     media_id = mapped_column(String, nullable=False)
     media_type = mapped_column(String, nullable=False)  # Can be 'movie' or 'series'
     added_on = mapped_column(db.DateTime, default=db.func.current_timestamp())
 
-    user = relationship("Cliente", back_populates="favorites")
+    user = relationship("Client", back_populates="favorites")
 
     def serialize(self):
         return {

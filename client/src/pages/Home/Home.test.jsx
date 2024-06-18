@@ -1,5 +1,5 @@
 import { renderWithRouter, screen } from '../../test-utils';
-import Home from './index';
+import Home from './Home';
 import '@testing-library/jest-dom';
 import { describe, expect } from 'vitest';
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Container, Movie, DivMainContainer } from './styles.jsx';
 import { Link } from 'react-router-dom';
-import axios from '../../services';
-import api_key from '../../api_key';
-import Loader from '../../components/Loader';
+import axios from '../../services/index.js';
+import api_key from '../../api_key/index.js';
+import Loader from '../../components/Loader/Loader.jsx';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';

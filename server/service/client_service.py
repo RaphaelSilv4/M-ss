@@ -1,63 +1,63 @@
-from models.user_model import Cliente
+from models.user_model import Client
 from config.database import db
 from flask_bcrypt import check_password_hash, generate_password_hash
 import re
 
 
-def validar_email(email):
-    padrao = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-    return re.match(padrao, email)
+def validate_email(email):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email)
 
-def validar_dados_cliente(data):
-    cliente_nome = data.get('nome')
-    cliente_email = data.get('email')
-    cliente_senha = data.get('senha')
+def validate_client_data(data):
+    client_name = data.get('name')
+    client_email = data.get('email')
+    client_password = data.get('password')
     
-    if not cliente_nome or not cliente_email or not cliente_senha:
+    if not client_name or not client_email or not client_password:
         return False, 'Faltam dados obrigatórios'
     
-    if not (cliente_email):
+    if not (client_email):
         return False, 'Email inválido'
     
     return True, None
 
-def criar_cliente(data):
-    cliente = Cliente(nome=None,email=None,senha=None)
-    cliente_nome = data.get("nome")
-    cliente_email = data.get("email")
-    cliente_senha = data.get("senha")
-    cliente.nome = cliente_nome
-    cliente.email = cliente_email
-    cliente.senha = generate_password_hash(cliente_senha).decode('utf-8')
+def create_client(data):
+    client = Client(name=None,email=None,password=None)
+    client_name = data.get("name")
+    client_email = data.get("email")
+    client_password = data.get("password")
+    client.name = client_name
+    client.email = client_email
+    client.password = generate_password_hash(client_password).decode('utf-8')
     
-    db.session.add(cliente)
+    db.session.add(client)
     db.session.commit()
     
-    return cliente
+    return client
 
-def atualizar_cliente(cliente, data):
-    cliente_nome = data.get('nome')
-    cliente_email = data.get('email')
-    cliente_senha = data.get('senha')
+def update_client(client, data):
+    client_name = data.get('name')
+    client_email = data.get('email')
+    client_password = data.get('password')
     
-    if cliente_nome:
-        cliente.nome = cliente_nome
+    if client_name:
+        client.name = client_name
 
-    if cliente_email:
-        if not (cliente_email):
+    if client_email:
+        if not (client_email):
             return False, 'Email inválido'
-        cliente.email = cliente_email
+        client.email = client_email
 
-    if cliente_senha:
-        cliente.senha = generate_password_hash(cliente_senha)
+    if client_password:
+        client.password = generate_password_hash(client_password).decode('utf-8')
 
     db.session.commit()
     return True, None
-def authenticate_user(email,senha):
-        user = db.session.execute(db.select(Cliente).filter_by(email=email)).scalar_one_or_none()
+def authenticate_user(email,password):
+        user = db.session.execute(db.select(Client).filter_by(email=email)).scalar_one_or_none()
         if user == None:
             raise Exception("usuario não cadastrado")
-        if not check_password_hash(user.senha, senha):
+        if not check_password_hash(user.password, password):
             raise Exception("Senha incorreta")
         else: 
             print("senha correta")
